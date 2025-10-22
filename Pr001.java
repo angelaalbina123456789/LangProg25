@@ -16,25 +16,49 @@ class Gen<T> {
 	}
 
 }
+class TwoGen<T,V> {
+	//
+	T ob1;
+	V ob2;
+	//
+	TwoGen(T o1, V o2) {
+		ob1 = o1;
+		ob2 = o2;
+	}
+	//
+	T getOb1() {
+		return ob1;
+	}
+	V getOb2() {
+		return ob2;
+	}
+	//методы получающее информацию об имени типов
+	void showTypes() {
+		System.out.println("Тип T: " + ob1.getClass().getName());
+		System.out.println("Тип V: " + ob2.getClass().getName());
+	}
+}
+
+
+
 class Pr001 {
 	public static void main(String[] args) {
+		Gen<String> strOb = new Gen<String>("один обобщеный тип");
+		String str = strOb.getOb();
+		System.out.println("значение обобщеного типа с одним параметром" + str);
 		//создаем  ссылочную переменную на объект типа Integer
-		Gen<Integer> iOb;
+		TwoGen<Integer, String> tgOb;
 		//присваиваем ссылку на новый объект
-		iOb = new Gen<Integer>(88);
+		tgOb = new TwoGen<Integer, String>(88, "обобщение");
 		//выводим информацию о типе объекта
-		iOb.showType();
+		tgOb.showTypes();
 		//присваиваем целой переменной значение, хранящееся в объекте
-		int v = iOb.getOb();
+		int v = tgOb.getOb1();
 		System.out.println("Значение: " + v);
 
 		System.out.println();
-		//создаем ссылочную переменную на объект типа String и присваиваем ссылку на новый объект 
-		Gen<String> strOb = new Gen<String>("Строка обобщеного класса");
-		//выводим информацию о типе объекта
-		strOb.showType();
-		//присваиваем строковые переменные значения хранящееся в объекте
-		String str = strOb.getOb();
+		//присваиваем строковой переменной значение хранящее во втром объекте
+		str = tgOb.getOb2();
 		System.out.println("Значение в переменной str: " + str);
 	}
 }
