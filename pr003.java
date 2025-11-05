@@ -35,11 +35,17 @@ class pr003 {
 				System.out.println("исключительная ситуация выход из границы массива");
 			}
 			//обработка событий классса arithmeticException
-		
+			/*	
 			catch(ArithmeticException exc2) {
 				System.out.println("исключительная ситуация неверная арифметическая операция");
 			}
 			System.out.println("после оператора catch");
+			*/
+
+			catch (Throwable exc) {
+				System.out.println("исключения для которог не написан специфическтй обработчик");
+			}
 		}
+		
 	}
 }
