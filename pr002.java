@@ -74,6 +74,23 @@ class GenMeth {
 	}
 }
 
+//обобщенный конструктор                                                                                                                                                                                                                                                                                                                                                          
+class Summation {
+	private int sum;
+	<T extends Number> Summation(T arg) {
+		sum = 0;
+
+		for(int i=0; i<= arg.intValue(); i++)
+			sum += i;
+	}
+
+	int get
+		sum() {
+			return sum;
+		}
+}
+
+
 class pr002 {
 	public static void main(String args[]) {
 		NumFns<Integer> iOb = new NumFns<Integer>(5);
